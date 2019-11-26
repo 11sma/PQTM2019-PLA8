@@ -31,7 +31,7 @@ public class TestDB extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cadConexion= "jdbc:mysql://localhost:3306/";
-		String bd= "tareas";
+		String bd= "compras";
 		String usuario= "isma";
 		String pass= "";
 		

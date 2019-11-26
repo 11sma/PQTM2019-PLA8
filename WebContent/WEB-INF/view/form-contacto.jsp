@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Tarea</title>
+<title>Contacto</title>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	crossorigin="anonymous"></script>
@@ -20,35 +20,33 @@
 <body>
 	<div class="container">
 		<div class="jumbotron">
-			<img src="${pageContext.request.contextPath}/resources/img/task.png"
-				alt="tareas" class="float-right" height="150" />
-			<h1>${ tarea.idtarea==0 ? "Nueva" : "Editar"}  tarea</h1>
-			<p>Mantenimiento de una lista de tareas realizado con Spring e
+			<img src="${pageContext.request.contextPath}/resources/img/contacto.svg"
+				alt="contactos" class="float-right" height="150" />
+			<h1>${ contacto.idcontacto==0 ? "Nuevo" : "Editar"} contacto</h1>
+			<p>Mantenimiento de una lista de contactos realizado con Spring e
 				Hibernate.</p>
 
 		</div>
 
 
-		<form:form action="savetarea" modelAttribute="tarea" method="post">
-			<form:hidden path="idtarea" />
+		<form:form action="savecontacto" modelAttribute="contacto" method="post">
+			<form:hidden path="idcontacto" />
 			<div class="form-group">
 				<label for="nombre">Nombre:</label>
 				<form:input path="nombre" class="form-control" />
 			</div>
-
-
 			<div class="form-group">
-				<label for="nombre">Prioridad:</label>
-				<form:input path="prioridad" class="form-control" />
+				<label for="email">Email:</label>
+				<form:input path="email" class="form-control" />
 			</div>
 			<div class="form-group">
-				<label for="nombre">Vencimiento:</label>
-				<form:input path="vencimiento" class="form-control" />
+				<label for="telefono">Telefono:</label>
+				<form:input path="telefono" class="form-control" />
 			</div>
 			<input type="submit" value="Guardar" class="btn btn-success" />
-			<a href="${pageContext.request.contextPath}/tarea/lista"
+			<a href="${pageContext.request.contextPath}/contacto/lista"
 				class="btn btn-outline-primary float-right"> Volver a lista de
-				tareas</a>
+				contactos</a>
 		</form:form>
 	</div>
 </body>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Lista de tareas</title>
+<title>Lista de contactos</title>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	crossorigin="anonymous"></script>
@@ -22,43 +22,41 @@
 
 	<div class="container">
 		<div class="jumbotron">
-			<img src="${pageContext.request.contextPath}/resources/img/task.png"
-				alt="tareas" class="float-right" height="150" />
-			<h1>Lista de tareas</h1>
-			<p>Mantenimiento de una lista de tareas realizado con Spring e
+			<img src="${pageContext.request.contextPath}/resources/img/contacto.svg"
+				alt="contactos" class="float-right" height="150" />
+			<h1>Lista de contactos</h1>
+			<p>Mantenimiento de una lista de contactos realizado con Spring e
 				Hibernate.</p>
 
 		</div>
 
 
-		<a href="addtarea" class="btn btn-primary mb-1">Ańadir tarea</a>
+		<a href="addcontacto" class="btn btn-primary mb-1">Añadir contacto</a>
 		<table class="table table-striped">
 			<tr>
 				<th>Id</th>
 				<th>Nombre</th>
-				<th>Prioridad</th>
-				<th>Vencimiento</th>
+				<th>email</th>
+				<th>telefono</th>
 				<th>Acciones</th>
 			</tr>
 
-			<c:forEach var="tarea" items="${tareas}">
-				<c:url var="linkEditar" value="/tarea/updatetarea">
-					<c:param name="idtarea" value="${tarea.idtarea }" />
+			<c:forEach var="contacto" items="${contactos}">
+				<c:url var="linkEditar" value="/contacto/updatecontacto">
+					<c:param name="idcontacto" value="${contacto.idcontacto }" />
 				</c:url>
-				<c:url var="linkBorrar" value="/tarea/deletetarea">
-					<c:param name="idtarea" value="${tarea.idtarea }" />
+				<c:url var="linkBorrar" value="/contacto/deletecontacto">
+					<c:param name="idcontacto" value="${contacto.idcontacto }" />
 				</c:url>
 				<tr>
-					<td>${tarea.idtarea }</td>
-					<td>${tarea.nombre }</td>
-					<td>${tarea.prioridad }</td>
-
-					<td><fmt:formatDate value="${tarea.vencimiento}" type="date"
-							pattern="dd-MM-yyyy" /></td>
+					<td>${contacto.idcontacto }</td>
+					<td>${contacto.nombre }</td>
+					<td>${contacto.email }</td>
+					<td>${contacto.telefono }</td>
 					<td><a href="${linkEditar }"
 						class="btn btn-outline-success btn-sm">Editar</a> <a
 						href="${linkBorrar }"
-						onclick="if(!confirm('żEstá seguro?')) return false"
+						onclick="if(!confirm('Está seguro?')) return false"
 						class="btn btn-outline-danger btn-sm">Borrar</a></td>
 				</tr>
 			</c:forEach>
